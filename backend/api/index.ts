@@ -1,3 +1,4 @@
+import type { VercelRequest, VercelResponse } from '@vercel/node';
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -65,4 +66,7 @@ app.get('/', (req, res) => {
 // Error handling
 app.use(errorHandler);
 
-export default app;
+// Vercel serverless handler
+export default function handler(req: VercelRequest, res: VercelResponse) {
+  return app(req as any, res as any);
+}
