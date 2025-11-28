@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5001';
+// Hardcode for Vercel deployment - no env var needed
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://key-vault-api-f1bn.vercel.app';
 
 export const api = axios.create({
   baseURL: `${API_URL}/api`,
